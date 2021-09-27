@@ -33,11 +33,23 @@ async function getInfos() {
             const element = await page.$('.players-count');
             if (!!element) {
                 const text = await (await element.getProperty('textContent')).jsonValue();
+
+                /**
+                 * SET NUMBER OF PLAYERS INTO NAME CHANNEL DISCORD
+                 * COMMENT/DECOMMENT BLOCK TO USE IT
+                 **/
                 client.channels.fetch(ID_CHANNEL_PLAYERS).then(channel => {
                     console.log('SET NEW NAME WITH PLAYERS ON CHANNEL NAME...');
-                    channel.setName('Joueurs:' + text.replace('group', ''));
+                    channel.setName(`Joueurs: ${text.replace('group', '')}`);
                     console.log(`JOUEURS: ${text.replace('group', '')}`);
                 });
+
+                /**
+                 * SET NUMBER OF PLAYERS IN ACTIVITY BOT
+                 * COMMENT/DECOMMENT LINE TO USE IT
+                 **/
+                client.user.setActivity(`${text.replace('group', '')} Joueurs`);
+
             } else {
                 console.log('FIVEM ERROR GET INFORMATIONS... RETRY LATER');
             }
