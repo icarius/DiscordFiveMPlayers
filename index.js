@@ -8,9 +8,9 @@ const app = express()
 app.set('view engine', 'pug');
 moment.locale('fr');
 
-const TOKEN_BOT = 'TOKEN BOT HERE';
-const URL_FIVEM = 'URL FIVEM DETAIL SERVER HERE EXAMPLE : https://servers.fivem.net/servers/detail/id';
-const ID_CHANNEL_PLAYERS = 'ID CHANNEL TO CHANGE NAME OF THIS';
+const TOKEN_BOT = 'ODkwNTE0OTY1OTgxNzE2NDkw.YUw6sA.uJXgnsXzVJDi8SK1rGnd5_pLqfY';
+const URL_FIVEM = 'https://servers.fivem.net/servers/detail/44565v';
+const ID_CHANNEL_PLAYERS = '891791008197660682';
 
 const PORT = process.env.PORT || 3000;
 
@@ -31,14 +31,17 @@ async function getInfos() {
 
             console.log('INFORMATIONS OF SERVER RECEIVED...');
             const element = await page.$('.players-count');
-            const text = await (await element.getProperty('textContent')).jsonValue();
-            client.channels.fetch(ID_CHANNEL_PLAYERS).then(channel => {
-                console.log('SET NEW NAME WITH PLAYERS ON CHANNEL NAME...');
-                channel.setName('Joueurs:' + text.replace('group', ''));
-                console.log(`JOUEURS: ${text.replace('group', '')}`);
-            });
+            if (!!element) {
+                const text = await (await element.getProperty('textContent')).jsonValue();
+                client.channels.fetch(ID_CHANNEL_PLAYERS).then(channel => {
+                    console.log('SET NEW NAME WITH PLAYERS ON CHANNEL NAME...');
+                    channel.setName('Joueurs:' + text.replace('group', ''));
+                    console.log(`JOUEURS: ${text.replace('group', '')}`);
+                });
+            } else {
+                console.log('FIVEM ERROR GET INFORMATIONS... RETRY LATER');
+            }
             await browser.close();
-
         });
         client.login(TOKEN_BOT);
     } catch (error) {
