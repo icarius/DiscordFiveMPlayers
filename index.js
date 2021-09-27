@@ -46,8 +46,9 @@ async function getInfos() {
 
                 /**
                  * SET NUMBER OF PLAYERS IN ACTIVITY BOT
-                 * COMMENT/DECOMMENT LINE TO USE IT
+                 * COMMENT/DECOMMENT LINES TO USE IT
                  **/
+                client.user.setStatus('online');
                 client.user.setActivity(`${text.replace('group', '')} Joueurs`);
 
             } else {

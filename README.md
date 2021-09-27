@@ -2,7 +2,8 @@
 
 Small nodeJS script allowing to change the name of a channel with the number of current players playing on your server!
 
-No need for the players.json file or anything else, the script does not use the FiveM server but the FiveM link so nothing needs to be changed on the GTA server side.
+No need for the players.json file or anything else, the script does not use the FiveM server but the FiveM link so
+nothing needs to be changed on the GTA server side.
 
 ## Prerequisites
 
@@ -40,6 +41,10 @@ No need for the players.json file or anything else, the script does not use the 
 
 8. Enjoy !
 
-Exemple of result:
+Exemple of result (with activity bot):
 
-![Varaible](./img/players.png)
+![Variable](./img/players_2.png)
+
+Exemple of result (with channel name):
+
+![Variable](./img/players.png)
