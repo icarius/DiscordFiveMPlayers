@@ -35,6 +35,7 @@ async function getInfos() {
             client.channels.fetch(ID_CHANNEL_PLAYERS).then(channel => {
                 console.log('SET NEW NAME WITH PLAYERS ON CHANNEL NAME...');
                 channel.setName('Joueurs:' + text.replace('group', ''));
+                console.log(`JOUEURS: ${text.replace('group', '')}`);
             });
             await browser.close();
 
@@ -56,5 +57,9 @@ app.get('/health', (req, res) => {
 app.listen(PORT, async () => {
     console.log(`Server running on port ${PORT}`);
     await getInfos();
+
+    cron.schedule('*/2 * * * *', async () => {
+        await getInfos();
+    });
 });
 
