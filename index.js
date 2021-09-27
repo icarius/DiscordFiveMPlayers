@@ -35,7 +35,7 @@ async function getInfos() {
                 const text = await (await element.getProperty('textContent')).jsonValue();
                 client.channels.fetch(ID_CHANNEL_PLAYERS).then(channel => {
                     console.log('SET NEW NAME WITH PLAYERS ON CHANNEL NAME...');
-                    channel.setName('Joueurs:' + text.replace('group', ''));
+                    channel.setName(`Joueurs: ${text.replace('group', '')}`);
                     console.log(`JOUEURS: ${text.replace('group', '')}`);
                 });
             } else {
