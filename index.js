@@ -8,9 +8,9 @@ const app = express()
 app.set('view engine', 'pug');
 moment.locale('fr');
 
-const TOKEN_BOT = 'ODkwNTE0OTY1OTgxNzE2NDkw.YUw6sA.uJXgnsXzVJDi8SK1rGnd5_pLqfY';
-const URL_FIVEM = 'https://servers.fivem.net/servers/detail/44565v';
-const ID_CHANNEL_PLAYERS = '891791008197660682';
+const TOKEN_BOT = 'TOKEN BOT HERE';
+const URL_FIVEM = 'URL FIVEM DETAIL SERVER HERE EXAMPLE : https://servers.fivem.net/servers/detail/id';
+const ID_CHANNEL_PLAYERS = 'ID CHANNEL TO CHANGE NAME OF THIS';
 
 const PORT = process.env.PORT || 3000;
 
