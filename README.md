@@ -39,4 +39,5 @@ Small nodeJS script allowing to change the name of a channel with the number of 
 8. Enjoy !
 
 Exemple of result:
+
 ![Varaible](./img/players.png)
